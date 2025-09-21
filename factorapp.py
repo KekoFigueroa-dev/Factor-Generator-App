@@ -35,7 +35,12 @@ while active:
     if user_response != "yes":
         active = False
         print("Thank you for using my Factor Generator App!")
-
+        print(r"""
+   (\__/)
+   (o^.^)
+  z(_(")(")
+Pikachu says: Well done, Factor Master!
+""")
 
 # ==========================================
 # PROGRAM STRUCTURE NOTES
