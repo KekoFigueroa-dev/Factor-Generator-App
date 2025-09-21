@@ -1,59 +1,47 @@
 """
-Factor Generator App - Find and display all factors of a user-input number
+Factor Generator App
+Finds all factors of a user-input number and displays factor pairs.
 """
 
-#Print welcome message to user
-print("Welcome to my Factor Generator App!")
+print("Welcome to my Factor Generator App!")  # Welcome message
 
-# Active flag variable to control the main program loop
-active = True
+active = True  # Main loop control flag
 
-# MAIN PROGRAM LOOP
-
-# While loop using the active flag
 while active:
     input_number = int(input("Enter a number to find its factors: "))
     factors = []
-    for i in range(1 , input_number + 1):
+    # Collect all factors of input_number
+    for i in range(1, input_number + 1):
         if input_number % i == 0:
-            factors.append(i)   
-    # DISPLAY FACTORS SECTION
+            factors.append(i)
+    # Print all factors
     print(f"The factors of {input_number} are:")
     for factor in factors:
-        print(f"{factor}", end="\n")
-    break
-
-
-    # FACTOR PAIRS SUMMARY SECTION
-    # ------------------------------------------
-
-    # TODO: Print "In summary:" header
-
-    # TODO: Create for loop to show factor pairs
-    # Hint: Only loop through half the list: range(int(len(factors)/2))
-
-        # TODO: Pair first element with last, second with second-to-last, etc.
-        # Hint: factors[i] pairs with factors[-(i+1)]
-        # TODO: Print in format: "factor1 * factor2 = original_number"
-
-
-    # ------------------------------------------
-    # CONTINUATION PROMPT SECTION
-    # ------------------------------------------
-
-    # TODO: Ask user if they want to run the program again
-
-    # TODO: Check user's response
-    # If they don't want to continue:
-        # TODO: Set active flag to False
-        # TODO: Print goodbye message
+        print(factor)
+    print()
+    # Print unique factor pairs
+    print("Summary of factor pairs:")
+    for i in range(int(len(factors) / 2)):
+        factor1 = factors[i]
+        factor2 = factors[-(i + 1)]
+        print(f"{factor1} * {factor2} = {input_number}")
+    # Print middle factor squared if odd number of factors
+    if len(factors) % 2 == 1:
+        middle = factors[len(factors) // 2]
+        print(f"{middle} * {middle} = {input_number}")
+    print()
+    # Ask to run again or exit
+    user_response = input("Do you want to find factors for another number? (yes/no): ").strip().lower()
+    if user_response != "yes":
+        active = False
+        print("Thank you for using my Factor Generator App!")
 
 
 # ==========================================
 # PROGRAM STRUCTURE NOTES
 # ==========================================
 """
-Key Python concepts used:
+Key Python concepts:
 - While loops with flag control
 - For loops with range()
 - List operations (append, indexing)
